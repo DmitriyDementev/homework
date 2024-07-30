@@ -1,0 +1,24 @@
+def custom_write(file_name, strings):
+    index = 1
+    strings_positions = {}
+    for i in strings:
+        file = open(file_name, 'a', encoding='utf-8')
+        current_string = {(index, file.tell()): i}
+        strings_positions.update(current_string)
+        file.write(i + '\n')
+        index += 1
+        file.close()
+    return strings_positions
+
+info = ['Text for tell.',
+        'Используйте кодировку utf-8.',
+        'Because there are 2 languages!',
+        'Спасибо!',
+        'Avada Kedavra']
+result = custom_write('test.txt', info)
+for elem in result.items():
+  print(elem)
+
+
+
+Module_7_2
